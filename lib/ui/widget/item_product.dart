@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_for_route/model/products.dart';
 class ItemProduct extends StatelessWidget {
-  ItemProduct({super.key,required this.products});
+   ItemProduct({super.key,required this.products,});
  Products products;
   @override
   Widget build(BuildContext context) {
@@ -59,12 +59,12 @@ class ItemProduct extends StatelessWidget {
             Text(products.description!,
               maxLines: 1,overflow: TextOverflow.ellipsis,style: const TextStyle(fontSize: 20),),
             const SizedBox(height: 4,),
-            Expanded(
+             Expanded(
               child: Row(
                 children: [
-                  Text("EGP ${products.discountPercentage!}", style: const TextStyle(fontSize: 16),),
+                  Text("EGP ${products.price}", style: const TextStyle(fontSize: 16),),
                   const SizedBox(width: 12,),
-                  Text("${products.price} EGP", style: const TextStyle(fontSize: 12,color: Colors.blue,
+                  Text("${products.discountPercentage} EGP", style: const TextStyle(fontSize: 12,color: Colors.blue,
                   decoration: TextDecoration.lineThrough,
                     decorationColor: Colors.blue,
                     decorationThickness: 3,),),

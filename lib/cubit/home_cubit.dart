@@ -6,17 +6,20 @@ import '../model/products.dart';
 
 class HomeCubit extends Cubit<HomeState>{
   HomeCubit() : super(InitialHome());
-  Future<Products>getProduct()async{
+  Future<List<Products>>getProduct()async{
     emit(LoadingHome());
     try{
       Uri url= Uri.parse("https://dummyjson.com/products");
       Response response =await get(url);
       Map<String, dynamic> jsonData = jsonDecode(response.body);
-      Products products= Products.fromJson(jsonData);
+      // Products products= Products.fromJson(jsonData);
+      List<Products> products = (jsonData['products'] as List)
+          .map((productJson) => Products.fromJson(productJson))
+          .toList();
       print("*******");
       print(jsonData);
       if(response.statusCode>=200&&response.statusCode<300){
-        emit(SuccessHome());
+        emit(SuccessHome(products: products));
         return products;
       } else {
         emit(FailureHome(errMessage: "some thing went wrong please try again later"));

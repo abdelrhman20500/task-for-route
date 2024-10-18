@@ -4,9 +4,9 @@ void showErrorDialog(BuildContext context, String errorMessage) {
       context: context,
       builder: (_) {
         return AlertDialog(
-          title: const Text(
-            "Error",
-            style: TextStyle(color: Colors.blue),
+          title: Text(
+            errorMessage,
+            style: const TextStyle(color: Colors.blue),
           ),
           content: Text(
             errorMessage,

@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:http/http.dart';
 import 'package:task_for_route/model/products.dart';
 
@@ -22,3 +21,4 @@ class ApiManager {
     }
   }
 }
+
